@@ -30,10 +30,10 @@ Database: SQLite (default, easy to switch to PostgreSQL/MySQL)
 Authentication: Django built-in auth system
 
 
-## ⚙️ Installation
+# Installation
 
 # 1. Clone the repository
-git clone https://github.com/Soham-Kamble/Real-Time-Chat-Application
+git clone https://github.com/Soham-Kamble/Real-Time-Chat-Application.git
 cd mysite
 
 # 2. Create and activate a virtual environment
@@ -44,12 +44,17 @@ source venv/bin/activate
 venv\Scripts\activate
 
 # 3. Create a .env file in the project root and add:
-# SECRET_KEY=your-django-secret-key
-# DEBUG=True
+SECRET_KEY=your-django-secret-key
+DEBUG=True
 
 # 4. Apply database migrations
 python manage.py migrate
 
 # 5. Run the development server
 python manage.py runserver
+
+mostly run it on Daphne: daphne mysite.asgi:application
+
+
+## Now open http://127.0.0.1:8000/ in your browser 🎉
 
