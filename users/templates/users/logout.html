@@ -1,0 +1,9 @@
+{% extends "chatapp/base.html" %}
+{% block body %}
+<div class="flex justify-center items-center h-screen">
+  <div class="text-center">
+    <p class="mb-4">You have been logged out.</p>
+    <a href="{% url 'login' %}" class="bg-blue-600 text-white px-4 py-2 rounded">Login again</a>
+  </div>
+</div>
+{% endblock %}

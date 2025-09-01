@@ -1,0 +1,37 @@
+{% extends "chatapp/base.html" %}
+{% load widget_tweaks %}
+{% block body %}
+
+<div class="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-50 to-blue-100">
+  <div class="bg-white shadow-2xl rounded-3xl p-10 w-full max-w-md transform transition duration-500 hover:scale-105">
+    <h2 class="text-4xl font-extrabold text-gray-800 mb-8 text-center">Welcome Back</h2>
+    
+    <form method="post" class="space-y-6">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="flex flex-col">
+          {{ field.label_tag }}
+          {{ field|add_class:"border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400" }}
+          {% if field.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ field.errors }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+      
+      <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 transition text-white font-bold py-3 rounded-2xl shadow-lg">
+        Login
+      </button>
+    </form>
+    
+    <p class="mt-6 text-center text-gray-600 text-sm">
+      Don’t have an account? 
+      <a href="{% url 'register' %}" class="text-green-600 font-semibold hover:underline">Register</a>
+    </p>
+    
+    <p class="mt-2 text-center text-gray-400 text-xs">
+      By logging in, you agree to our <a href="#" class="underline">Terms of Service</a>
+    </p>
+  </div>
+</div>
+
+{% endblock %}
